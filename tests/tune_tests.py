@@ -1,4 +1,5 @@
 import pytest
+from classes.tune import Tune
 
 
 class TestTune:
