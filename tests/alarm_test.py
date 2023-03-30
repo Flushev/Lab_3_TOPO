@@ -1,9 +1,10 @@
 import datetime
 
 from classes.tune import Tune
+from classes.alarm import Alarm
 
 
-class AlarmTest:
+class TestAlarm:
     @staticmethod
     def create_tune():
         tune = Tune(
@@ -22,3 +23,4 @@ class AlarmTest:
             tune=tune,
             time=time
         )
+        assert alarm is not None
