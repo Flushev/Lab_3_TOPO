@@ -1,3 +1,5 @@
+from classes.app import App
+
 
 class TestApp:
 
