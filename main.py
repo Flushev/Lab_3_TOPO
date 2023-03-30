@@ -1,16 +1,27 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from classes.app import App
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main_page():
+    print("Главное меню")
+    print("1. Список будильников")
+    print("2. Создать будильник")
+    print("3. Удалить будильник")
+    choice = None
+    while choice not in [1, 2, 3]:
+        print("Ваш выбор: ", end='')
+        try:
+            choice = int(input())
+            if choice not in [1, 2, 3]:
+                raise Exception
+        except Exception as e:
+            print("Введено недопустимое значение. Попробуйте еще раз")
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    app = App()
+    main_page()
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
