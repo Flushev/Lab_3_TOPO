@@ -36,3 +36,10 @@ class TestApp:
         app.add_alarm(alarm)
         alarms = app.alarms
         assert alarms is not None
+
+    def test_app_get_alarm_list(self):
+        app = App()
+        alarm = self.create_alarm(self)
+        app.add_alarm(alarm)
+        res = app.get_alarm_list()
+        assert res
