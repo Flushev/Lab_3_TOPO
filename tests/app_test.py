@@ -6,7 +6,7 @@ import datetime
 
 class TestApp:
     @staticmethod
-    def create_tune(self):
+    def create_tune():
         tune = Tune(
             name='test_tune',
             path='tunes/test_tune.mp3'
