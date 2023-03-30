@@ -9,6 +9,10 @@ class Alarm:
     time: datetime.time
     is_active: bool
 
+    def aside(self):
+        time = datetime.time(hour=self.time.hour, minute=self.time.minute + 5)
+        self.time = time
+
     def __init__(self, name, description, tune, time, is_active=False):
         self.name = name
         self.description = description
