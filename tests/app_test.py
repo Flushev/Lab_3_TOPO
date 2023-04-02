@@ -49,3 +49,10 @@ class TestApp:
         tune = self.create_tune()
         res = app.get_tune_list()
         assert res
+
+    def test_app_add_tune(self):
+        app = App()
+        tune = self.create_tune()
+        app.add_tune(tune)
+        tunes = app.tunes
+        assert tunes is not None
