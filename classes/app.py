@@ -12,6 +12,12 @@ class App:
         else:
             self.alarms.append(alarm)
 
+    def add_tune(self, tune: Tune):
+        if self.tunes is None:
+            self.tunes = [tune]
+        else:
+            self.tunes.append(tune)
+
     def get_alarm_list(self):
         i = 1
         if self.alarms is not None:
