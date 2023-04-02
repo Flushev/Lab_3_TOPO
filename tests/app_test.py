@@ -43,3 +43,9 @@ class TestApp:
         app.add_alarm(alarm)
         res = app.get_alarm_list()
         assert res
+
+    def test_app_get_tune_list(self):
+        app = App()
+        tune = self.create_tune()
+        res = app.get_tune_list()
+        assert res
