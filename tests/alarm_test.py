@@ -41,3 +41,15 @@ class TestAlarm:
         time_2 = alarm.time.minute
         assert time_2 == time_1 + 5
 
+    def test_alarm_activate(self):
+        tune = self.create_tune()
+        time = datetime.time(hour=8, minute=0)
+        alarm = Alarm(
+            name='test_alarm',
+            description='test_description',
+            tune=tune,
+            time=time
+        )
+        mixer = alarm.activate()
+        assert mixer is not None
+
