@@ -53,3 +53,14 @@ class TestAlarm:
         mixer = alarm.activate()
         assert mixer is not None
 
+    def test_alarm_start_plane(self):
+        tune = self.create_tune()
+        time = datetime.time(hour=8, minute=0)
+        alarm = Alarm(
+            name='test_alarm',
+            description='test_description',
+            tune=tune,
+            time=time
+        )
+        assert alarm.start_plant()
+
