@@ -21,3 +21,12 @@ class TestTune:
         exist = tune.check_exist()
         assert exist is True or exist is False
 
+    def test_tune_play(self):
+        tune = Tune(
+            name='test_tune',
+            path='tunes/test_tune.mp3'
+        )
+        assert tune is not None
+        mixer = tune.play()
+        assert mixer is not None
+
