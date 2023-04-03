@@ -62,5 +62,5 @@ class TestAlarm:
             tune=tune,
             time=time
         )
-        assert alarm.start_plant()
+        assert alarm.start_plane()
 

@@ -1,5 +1,6 @@
 from classes.tune import Tune
 import datetime
+import schedule
 
 
 class Alarm:
@@ -15,6 +16,12 @@ class Alarm:
 
     async def activate(self):
         return self.tune.play()
+
+    async def start_plane(self):
+        if self.is_active:
+            schedule.every().day.at(f'{self.time.hour}:{self.time.minute}').do(self.activate())
+            schedule.run_pending()
+        return True
 
     def __init__(self, name, description, tune, time, is_active=False):
         self.name = name
