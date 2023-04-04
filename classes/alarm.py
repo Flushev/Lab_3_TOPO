@@ -1,6 +1,8 @@
 from classes.tune import Tune
 import datetime
 import schedule
+from multiprocessing import *
+import time
 
 
 class Alarm:
@@ -9,19 +11,27 @@ class Alarm:
     tune: Tune
     time: datetime.time
     is_active: bool
+    process: Process = None
 
     def aside(self):
         time = datetime.time(hour=self.time.hour, minute=self.time.minute + 5)
         self.time = time
 
-    async def activate(self):
-        return self.tune.play()
+    def activate(self):
+        print(f"\nСработал будильник {self.name}")
+        mixer = self.tune.play()
+        return mixer
 
-    async def start_plane(self):
-        if self.is_active:
-            schedule.every().day.at(f'{self.time.hour}:{self.time.minute}').do(self.activate())
+    def start_process(self):
+        self.process = Process(target=self.start_schedule, args=())
+        self.process.start()
+
+    def start_schedule(self):
+        schedule.every().day.at("12:04").do(self.activate)
+
+        while True:
             schedule.run_pending()
-        return True
+            time.sleep(1)
 
     def __init__(self, name, description, tune, time, is_active=False):
         self.name = name
