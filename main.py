@@ -139,6 +139,11 @@ async def edit_alarm(alarm: Alarm, app: App):
         alarm.is_active = is_active
         alarm.tune = tune
 
+        if alarm.is_active:
+            alarm.start_process()
+        elif alarm.process is not None:
+            alarm.process.terminate()
+
         print("Будильник успешно изменен")
         time.sleep(2)
 
