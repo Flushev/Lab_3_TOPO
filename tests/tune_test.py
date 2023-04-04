@@ -8,14 +8,14 @@ class TestTune:
     def test_tune_create(self):
         tune = Tune(
             name='test_tune',
-            path='tunes/test_tune.mp3'
+            path='tunes/test_tune.wav'
         )
         assert tune is not None
 
     def test_tune_check_exist(self):
         tune = Tune(
             name='test_tune',
-            path='tunes/test_tune.mp3'
+            path='tunes/test_tune.wav'
         )
         assert tune is not None
         exist = tune.check_exist()
@@ -24,7 +24,7 @@ class TestTune:
     def test_tune_play(self):
         tune = Tune(
             name='test_tune',
-            path='tunes/test_tune.mp3'
+            path='tunes/test_tune.wav'
         )
         assert tune is not None
         mixer = tune.play()

@@ -9,7 +9,7 @@ class TestApp:
     def create_tune():
         tune = Tune(
             name='test_tune',
-            path='tunes/test_tune.mp3'
+            path='tunes/test_tune.wav'
         )
         return tune
 

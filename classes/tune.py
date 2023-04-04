@@ -9,10 +9,11 @@ class Tune:
     def check_exist(self):
         return os.path.isfile(self.path)
 
-    async def play(self):
+    def play(self):
         mixer = pygame.mixer
+        mixer.init()
         mixer.music.load(self.path)
-        mixer.music.play(-1)
+        mixer.music.play()
         return mixer
 
     def __init__(self, name, path):
