@@ -20,6 +20,7 @@ class Alarm:
     def activate(self):
         print(f"\nСработал будильник {self.name}")
         mixer = self.tune.play()
+        time.sleep(2)
         return mixer
 
     def start_process(self):
@@ -27,7 +28,14 @@ class Alarm:
         self.process.start()
 
     def start_schedule(self):
-        schedule.every().day.at("12:04").do(self.activate)
+        hours = self.time.hour
+        if hours < 10:
+            hours = f'0{hours}'
+        mins = self.time.minute
+        if mins < 10:
+            mins = f'0{mins}'
+
+        schedule.every().day.at(f"{hours}:{mins}").do(self.activate)
 
         while True:
             schedule.run_pending()
