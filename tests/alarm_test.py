@@ -11,7 +11,7 @@ class TestAlarm:
     def create_tune():
         tune = Tune(
             name='test_tune',
-            path='tunes/test_tune.mp3'
+            path='tunes/test_tune.wav'
         )
         return tune
 
@@ -53,7 +53,7 @@ class TestAlarm:
         mixer = alarm.activate()
         assert mixer is not None
 
-    def test_alarm_start_plane(self):
+    def test_alarm_start_process(self):
         tune = self.create_tune()
         time = datetime.time(hour=8, minute=0)
         alarm = Alarm(
@@ -62,5 +62,6 @@ class TestAlarm:
             tune=tune,
             time=time
         )
-        assert alarm.start_plane()
+        alarm.start_process()
+        assert alarm.process is not None
 
